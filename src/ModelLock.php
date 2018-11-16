@@ -3,8 +3,8 @@
 namespace Sofa\ModelLocking;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @package sofa/model-locking
@@ -44,6 +44,8 @@ class ModelLock extends Model
                 $events->fire(new ModelUnlocked($lock->model));
             }
         });
+
+        parent::boot();
     }
 
     /**
